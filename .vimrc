@@ -2,6 +2,7 @@
 set nocompatible
 filetype off
 
+"TODO: make windows compatible
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
