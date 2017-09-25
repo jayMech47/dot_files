@@ -1,0 +1,44 @@
+" Vundle required
+set nocompatible
+filetype off
+
+" quick edit/source and leader
+let mapleader = " "
+nnoremap <leader>ev :vsplit ~/.vimrc<cr>
+nnoremap <leader>sv :source ~/.vimrc<cr>
+
+" Make cw consistent with dw, yw, vw
+onoremap w :execute 'normal! '.v:count1.'w'<CR>
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-surround'
+
+call vundle#end()
+filetype plugin indent on
+
+"Block and insert cursors
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[2 q"
+
+
+"make Tabs 4 spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+"make line numbers visible
+set number
+"set cursorline "highlight cursor line
+
+filetype indent on
+
+set showcmd
+
+nnoremap j gj
+nnoremap k gk
+nnoremap J 5j
+nnoremap K 5k
+
