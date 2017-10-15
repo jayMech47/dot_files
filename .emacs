@@ -1,8 +1,18 @@
 ;;melpa package include
 (require 'package)
+(setq package-list '(evil powerline powerline-evil solarized-theme))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
- 
+
+;; Auto-install packages
+;; -Use this instead?: Faster boot time
+;;   (or (file-exists-p package-user-dir) (package-refresh-contents))
+(unless package-archive-contents
+  (package-refresh-contents))
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 (require 'evil)
 (evil-mode 1)
 (require 'powerline)
@@ -17,7 +27,8 @@
  '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
    (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default))))
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(package-selected-packages (quote (powerline-evil powerline evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
